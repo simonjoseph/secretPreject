@@ -1,0 +1,89 @@
+:root{
+  --bg-color: hsl(49 37% 94%);
+  --typewritterSeepd: 6s;
+}
+
+body{
+  margin: 0;
+  font-family: sans-serif;
+  min-height: 100vh;
+  display: grid;
+  place-content: center;
+  text-align: center;
+  background: var(--bg-color);
+}
+/* 
+.flex{
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  justify-self: center;
+} */
+
+h1{
+  /* font-size: 3rem; */
+  font-size: clamp(1rem, 3vw + 1rem, 4rem);
+  font-weight: 300;
+  /* font-size: clamp(1rem, 3vw + 1rem, 4rem); */
+  position: relative;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  position: relative;
+
+  /**/
+  /* outline: 2px solid red;*/
+  width: max-content; 
+}
+
+h1::before,
+h1::after{
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+h1::before{
+  background: var(--bg-color);
+  animation: typewriter var(--typewritterSeepd) steps(42) 1s forwards;
+}
+
+h1::after{
+  width: .125em;
+  background: black;
+  animation: typewriter var(--typewritterSeepd) steps(42) 1s forwards,
+  blink 750ms steps(42) infinite;
+  /* blink var(--typewritterSeepd) steps(42) forwards;*/
+}
+
+.subtitle{
+  color: hsl(0 0% / 0.7);
+  font-size: 2rem;
+  font-weight: 400;
+  opacity: 0;
+  transform: translateY(3rem);
+  animation: fadeInUp 2s ease calc(var(--typewritterSeepd) + 2s) forwards;
+}
+
+@keyframes typewriter{
+  to{
+    left: 100%;
+  }
+}
+
+@keyframes blink{
+  to{
+    background: transparent;
+  }
+}
+
+@keyframes fadeInUp{
+  to{
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
